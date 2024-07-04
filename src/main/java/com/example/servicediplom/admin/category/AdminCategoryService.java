@@ -4,7 +4,7 @@ import com.example.servicediplom.dto.category.CategoryDto;
 import com.example.servicediplom.dto.category.NewCategoryDto;
 
 public interface AdminCategoryService {
-    CategoryDto create(NewCategoryDto newCategoryDto);
+    CategoryDto createCategory(NewCategoryDto newCategoryDto);
 
     void deleteCategory(Long catId);
 

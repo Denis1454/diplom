@@ -18,7 +18,7 @@ public class PrivateEventController {
 
     @PostMapping()
     public EventFullDto create(@PathVariable Long userId, @RequestBody NewEventDto newEventDto) {
-        return privateEventService.create(userId, newEventDto);
+        return privateEventService.createEvent(userId, newEventDto);
     }
 
     @PatchMapping("/{eventId}")
@@ -29,14 +29,14 @@ public class PrivateEventController {
     }
 
     @PatchMapping("/{eventId}/requests")
-    public EventFullDto StatusChangesInTheEvent(@PathVariable Long eventId,
+    public EventRequestStatusUpdateResult StatusChangesInTheEvent(@PathVariable Long eventId,
                                                 @PathVariable Long userId,
                                                 @RequestBody EventRequestStatusUpdateRequest eventRequestStatusUpdateRequest) {
         return privateEventService.StatusChangesInTheEvent(eventId, userId, eventRequestStatusUpdateRequest);
     }
 
     @GetMapping()
-    public List<EventFullDto> getEventsCurrentUser(@PathVariable Long userId,
+    public List<EventShortDto> getEventsCurrentUser(@PathVariable Long userId,
                                                    @RequestParam(required = false, defaultValue = "0") @PositiveOrZero Integer from,
                                                    @RequestParam(required = false, defaultValue = "10") @Positive Integer size) {
         return privateEventService.getEventsCurrentUser(userId, from, size);
@@ -49,7 +49,7 @@ public class PrivateEventController {
     }
 
     @GetMapping("/{eventId}/requests")
-    public List<EventFullDto> getInformationAboutRequestsParticipateEventCurrentUser(@PathVariable Long userId,
+    public List<ParticipationRequestDto> getInformationAboutRequestsParticipateEventCurrentUser(@PathVariable Long userId,
                                                                                      @PathVariable Long eventId) {
         return privateEventService.getInformationAboutRequestsParticipateEventCurrentUser(userId, eventId);
     }

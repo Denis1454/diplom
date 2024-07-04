@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface PrivateRequestsService {
 
-    List<ParticipationRequestDto> getInformationAboutRequestsUserParticipateInStrangersEvents(Long userId);
+    List<ParticipationRequestDto> getRequestsByRequesterId(Long userId);
 
-    ParticipationRequestDto createRequestUserTheEvent(Long userId, Long eventId);
+    ParticipationRequestDto createRequest(Long userId, Long eventId);
 
-    ParticipationRequestDto cancelingYourRequestToParticipateInEvent(Long userId, Long requestId);
+    ParticipationRequestDto changeStatusToCancel(Long userId, Long requestId);
 }

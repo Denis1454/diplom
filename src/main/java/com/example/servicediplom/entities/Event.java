@@ -1,9 +1,9 @@
 package com.example.servicediplom.entities;
 
 import com.example.servicediplom.entities.enums.State;
-import jakarta.persistence.*;
 import lombok.*;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(name = "annotation")
     private String annotation;
     @Column(name = "confirmed_requests")

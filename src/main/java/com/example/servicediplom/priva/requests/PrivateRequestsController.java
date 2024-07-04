@@ -14,18 +14,18 @@ public class PrivateRequestsController {
     private final PrivateRequestsService privateRequestsService;
 
     @GetMapping()
-    public List<ParticipationRequestDto> getInformationAboutRequestsUserParticipateInStrangersEvents(@PathVariable Long userId) {
-        return privateRequestsService.getInformationAboutRequestsUserParticipateInStrangersEvents(userId);
+    public List<ParticipationRequestDto> getRequestsByRequesterId(@PathVariable Long userId) {
+        return privateRequestsService.getRequestsByRequesterId(userId);
     }
 
     @PostMapping()
-    public ParticipationRequestDto createRequestUserTheEvent(@PathVariable Long userId, @RequestParam Long eventId) {
-        return privateRequestsService.createRequestUserTheEvent(userId, eventId);
+    public ParticipationRequestDto createRequest(@PathVariable Long userId, @RequestParam Long eventId) {
+        return privateRequestsService.createRequest(userId, eventId);
     }
 
     @PatchMapping("/{requestId}/cancel")
     public ParticipationRequestDto cancelingYourRequestToParticipateInEvent(@PathVariable Long userId,
                                         @PathVariable Long requestId) {
-        return privateRequestsService.cancelingYourRequestToParticipateInEvent(userId, requestId);
+        return privateRequestsService.changeStatusToCancel(userId, requestId);
     }
 }

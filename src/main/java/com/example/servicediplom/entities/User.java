@@ -1,7 +1,8 @@
 package com.example.servicediplom.entities;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import jakarta.persistence.*;
 
 @Getter
 @Setter

@@ -1,8 +1,8 @@
 package com.example.servicediplom.dto.event;
 
 import com.example.servicediplom.dto.category.CategoryDto;
-import com.example.servicediplom.entities.Location;
 import com.example.servicediplom.dto.user.UserShortDto;
+import com.example.servicediplom.entities.Location;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Builder;
 import lombok.Value;

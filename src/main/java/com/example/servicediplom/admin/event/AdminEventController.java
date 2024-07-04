@@ -2,6 +2,7 @@ package com.example.servicediplom.admin.event;
 
 import com.example.servicediplom.dto.event.EventFullDto;
 import com.example.servicediplom.dto.event.UpdateEventAdminRequest;
+import com.example.servicediplom.entities.enums.State;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.RequiredArgsConstructor;
@@ -14,13 +15,12 @@ import java.util.List;
 @RequestMapping(path = "/admin/events")
 @RequiredArgsConstructor
 public class AdminEventController {
-
     private final AdminEventService adminEventService;
 
-    @PostMapping()
-    public List<EventFullDto> searchEvent(@RequestParam List<Integer> users,
-                                          @RequestParam List<String> states,
-                                          @RequestParam List<Integer> categories,
+    @GetMapping()
+    public List<EventFullDto> searchEvent(@RequestParam List<Long> users,
+                                          @RequestParam List<State> states,
+                                          @RequestParam List<Long> categories,
                                           @RequestParam String rangeStart,
                                           @RequestParam String rangeEnd,
                                           @RequestParam(required = false, defaultValue = "0") @PositiveOrZero Integer from,

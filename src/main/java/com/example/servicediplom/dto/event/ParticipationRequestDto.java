@@ -8,11 +8,11 @@ import lombok.Value;
 public class ParticipationRequestDto {
     String created;
 
-    int event;
+    Long event;
 
-    int id;
+    Long id;
 
-    int requester;
+    Long requester;
 
     String status;
 }

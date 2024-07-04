@@ -18,8 +18,7 @@ public class AdminUserController {
     private final AdminUserService adminUserService;
 
     @GetMapping()
-    public List<UserDto> getInformationUsers(@RequestParam (required = false, defaultValue = "0") List<Integer> ids, //TODO (required = false, defaultValue = "0")
-                                             //TODO сделал чтобы избежать ошибки если будет 0
+    public List<UserDto> getInformationUsers(@RequestParam List<Long> ids,
                                 @RequestParam(required = false, defaultValue = "0") @PositiveOrZero Integer from,
                                 @RequestParam(required = false, defaultValue = "10") @Positive Integer size) {
         return adminUserService.getInformationUsers(ids,from,size);
@@ -27,7 +26,7 @@ public class AdminUserController {
 
     @PostMapping()
     public UserDto create(@RequestBody @Validated NewUserRequest newUserRequest) {
-        return adminUserService.create(newUserRequest);
+        return adminUserService.createUser(newUserRequest);
     }
 
     @DeleteMapping("/{userId}")

@@ -6,9 +6,9 @@ import com.example.servicediplom.dto.compilation.UpdateCompilationRequest;
 
 public interface AdminCompilationService {
 
-    CompilationDto create(NewCompilationDto newCompilationDto);
+    CompilationDto createCompilation(NewCompilationDto newCompilationDto);
 
-    void deleteCompilation(Long compId);
+    void deleteCompilation(Long compilationId);
 
-    CompilationDto updateCompilation(Long compId, UpdateCompilationRequest updateCompilationRequest);
+    CompilationDto updateCompilation(Long compilationId, UpdateCompilationRequest updateCompilationRequest);
 }
