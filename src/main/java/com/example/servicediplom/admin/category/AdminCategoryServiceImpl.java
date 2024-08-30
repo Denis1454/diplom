@@ -26,7 +26,6 @@ public class AdminCategoryServiceImpl implements AdminCategoryService {
     @Override
     public CategoryDto createCategory(NewCategoryDto newCategoryDto) {
         log.info(String.format("Начала операции createCategory, %s ", newCategoryDto));
-        log.info("Пришла Dto " + newCategoryDto);
         Category save = categoryRepository.save(categoryMapperDto.toNewCategory(newCategoryDto));
         CategoryDto categoryDto = categoryMapperDto.toDto(save);
         log.info("Конец операции createCategory" + categoryDto);
